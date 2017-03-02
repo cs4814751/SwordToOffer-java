@@ -14,14 +14,12 @@ public class Solution {
     }
 
     public int pop() {
-        while(!stack1.empty()) {
-            stack2.push(stack1.pop());
+        if(stack2.empty()) {
+            while(!stack1.empty()) {
+                stack2.push(stack1.pop());
+            }
         }
-        int r = stack2.pop();
-        while(!stack2.empty()) {
-            stack1.push(stack2.pop());
-        }
-        return r;
+        return stack2.pop();
     }
 
 
